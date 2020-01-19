@@ -100,7 +100,7 @@ class AirbnbExploreHeaderView: UIView {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.backgroundColor = Theme.PRIMARY_COLOR
-        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
+        btn.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         btn.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         btn.adjustsImageWhenHighlighted = false
         btn.addTarget(self, action: #selector(AirbnbExploreHeaderView.handleExpand), for: .touchUpInside)
@@ -121,7 +121,7 @@ class AirbnbExploreHeaderView: UIView {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.backgroundColor = Theme.PRIMARY_COLOR
-        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
+        btn.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         btn.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         btn.adjustsImageWhenHighlighted = false
         

@@ -117,7 +117,7 @@ class AirbnbPageTabNavigationView: UIScrollView {
 
 extension AirbnbPageTabNavigationView: AirbnbPageTabItemDelegate {
     func didSelect(tabItem: AirbnbPageTabItem, completion: (() -> Void)?) {
-        if let index = pageTabItems.index(of: tabItem) {
+        if let index = pageTabItems.firstIndex(of: tabItem) {
             navigationDelegate?.didSelect(tabItem: tabItem, atIndex: index) {
                 
                 self.animatePageTabSelection(toIndex: index)

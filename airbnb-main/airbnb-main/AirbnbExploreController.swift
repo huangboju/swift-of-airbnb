@@ -159,16 +159,16 @@ extension AirbnbExploreController: AirbnbExploreHeaderViewDelegate {
             let content = viewController.view!
             
             if currentPageController != nil {
-                currentPageController!.removeFromParentViewController()
+                currentPageController!.removeFromParent()
                 currentPageController!.view.removeFromSuperview()
-                currentPageController!.willMove(toParentViewController: nil)
+                currentPageController!.willMove(toParent: nil)
             }
             
             currentPageController = viewController
             
-            addChildViewController(viewController)
+            addChild(viewController)
             contentView.addSubview(content)
-            viewController.didMove(toParentViewController: self)
+            viewController.didMove(toParent: self)
             
             content.translatesAutoresizingMaskIntoConstraints = false
             content.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true

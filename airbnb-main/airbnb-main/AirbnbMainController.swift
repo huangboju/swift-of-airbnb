@@ -13,8 +13,8 @@ class AirbnbMainController: UITabBarController {
     let AIRBNB_COLOR = UIColor(r: 255, g: 90, b: 95)
     
     var tabBarHeight: CGFloat = 60
-    var tabBarTextAttributesNormal = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 8), NSAttributedStringKey.foregroundColor: UIColor.black]
-    var tabBarTextAttributesSelected = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 8), NSAttributedStringKey.foregroundColor: UIColor(r: 255, g: 90, b: 95)]
+    var tabBarTextAttributesNormal = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 8), NSAttributedString.Key.foregroundColor: UIColor.black]
+    var tabBarTextAttributesSelected = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 8), NSAttributedString.Key.foregroundColor: UIColor(r: 255, g: 90, b: 95)]
     
     var tabBarSeparator: UIView = {
         let view = UIView()
@@ -26,7 +26,7 @@ class AirbnbMainController: UITabBarController {
     var exploreTabItem: UITabBarItem = {
         let icon =  UIImage(named: "Search")
         let tab = UITabBarItem(title: "EXPLORE", image: icon?.tint(with: .black).withRenderingMode(.alwaysOriginal), selectedImage: icon)
-        tab.titlePositionAdjustment = UIOffsetMake(0, -5)
+        tab.titlePositionAdjustment = UIOffset.init(horizontal: 0, vertical: -5)
         return tab
     }()
     
@@ -39,7 +39,7 @@ class AirbnbMainController: UITabBarController {
     var savedTabItem: UITabBarItem = {
         let icon =  UIImage(named: "Heart")
         let tab = UITabBarItem(title: "SAVED", image: icon?.tint(with: .black).withRenderingMode(.alwaysOriginal), selectedImage: icon)
-        tab.titlePositionAdjustment = UIOffsetMake(0, -5)
+        tab.titlePositionAdjustment = UIOffset.init(horizontal: 0, vertical: -5)
         return tab
     }()
     
@@ -52,7 +52,7 @@ class AirbnbMainController: UITabBarController {
     var tripsTabItem: UITabBarItem = {
         let icon =  UIImage(named: "Bed")
         let tab = UITabBarItem(title: "TRIPS", image: icon?.tint(with: .black).withRenderingMode(.alwaysOriginal), selectedImage: icon)
-        tab.titlePositionAdjustment = UIOffsetMake(0, -5)
+        tab.titlePositionAdjustment = UIOffset.init(horizontal: 0, vertical: -5)
         return tab
     }()
     
@@ -65,7 +65,7 @@ class AirbnbMainController: UITabBarController {
     var inboxTabItem: UITabBarItem = {
         let icon =  UIImage(named: "Message")
         let tab = UITabBarItem(title: "INBOX", image: icon?.tint(with: .black).withRenderingMode(.alwaysOriginal), selectedImage: icon)
-        tab.titlePositionAdjustment = UIOffsetMake(0, -5)
+        tab.titlePositionAdjustment = UIOffset.init(horizontal: 0, vertical: -5)
         return tab
     }()
     
@@ -78,7 +78,7 @@ class AirbnbMainController: UITabBarController {
     var profileTabItem: UITabBarItem = {
         let icon =  UIImage(named: "Profile")
         let tab = UITabBarItem(title: "PROFILE", image: icon?.tint(with: .black).withRenderingMode(.alwaysOriginal), selectedImage: icon)
-        tab.titlePositionAdjustment = UIOffsetMake(0, -5)
+        tab.titlePositionAdjustment = UIOffset.init(horizontal: 0, vertical: -5)
         return tab
     }()
     

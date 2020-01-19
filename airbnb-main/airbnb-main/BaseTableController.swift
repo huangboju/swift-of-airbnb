@@ -26,7 +26,7 @@ class BaseTableController: UIViewController {
     var isHiddenStatusBar: Bool = false
     var statusBarStyle: UIStatusBarStyle = .lightContent
     
-    override func didMove(toParentViewController parent: UIViewController?) {
+    override func didMove(toParent parent: UIViewController?) {
         if let del = parent as? BaseTableControllerDelegate {
             self.headerDelegate = del
         }

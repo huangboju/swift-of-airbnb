@@ -79,12 +79,12 @@ public class AirbnbDatePickerViewController: UICollectionViewController {
             }
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(AirbnbDatePickerViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AirbnbDatePickerViewController.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
 
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     func initDates() {
@@ -113,20 +113,20 @@ public class AirbnbDatePickerViewController: UICollectionViewController {
     // MARK: - View Components
     
     lazy var dismissButton: UIBarButtonItem = {
-        let btn = UIButton(type: UIButtonType.custom)
+        let btn = UIButton(type: UIButton.ButtonType.custom)
         btn.setImage(UIImage(named: "Delete", in: Bundle(for: AirbnbDatePicker.self), compatibleWith: nil), for: .normal)
         btn.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
+        btn.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
         btn.addTarget(self, action: #selector(AirbnbDatePickerViewController.handleDismiss), for: .touchUpInside)
         let barBtn = UIBarButtonItem(customView: btn)
         return barBtn
     }()
     
     lazy var clearButton: UIBarButtonItem = {
-        let btn = UIButton(type: UIButtonType.custom)
+        let btn = UIButton(type: UIButton.ButtonType.custom)
         btn.setTitle("Clear", for: .normal)
         btn.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
-        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.right
+        btn.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.right
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         btn.addTarget(self, action: #selector(AirbnbDatePickerViewController.handleClearInput), for: .touchUpInside)
         let barBtn = UIBarButtonItem(customView: btn)
@@ -231,7 +231,7 @@ public class AirbnbDatePickerViewController: UICollectionViewController {
         collectionView?.allowsMultipleSelection = true
         
         collectionView?.register(AirbnbDatePickerCell.self, forCellWithReuseIdentifier: cellID)
-        collectionView?.register(AirbnbDatePickerMonthHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: monthHeaderID)
+        collectionView?.register(AirbnbDatePickerMonthHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: monthHeaderID)
         
         collectionView?.topAnchor.constraint(equalTo: headerSeparator.bottomAnchor).isActive = true
         collectionView?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -315,7 +315,7 @@ public class AirbnbDatePickerViewController: UICollectionViewController {
   
     override public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: monthHeaderID, for: indexPath) as! AirbnbDatePickerMonthHeader
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: monthHeaderID, for: indexPath) as! AirbnbDatePickerMonthHeader
         
         let monthData = months[indexPath.section]
         let curYear = calendar.component(.year, from: today)
@@ -627,7 +627,7 @@ public class AirbnbDatePickerViewController: UICollectionViewController {
     
     func findIndexPath(forDate date: Date) -> IndexPath? {
         var indexPath: IndexPath? = nil
-        if let section = months.index(where: {
+        if let section = months.firstIndex(where: {
             calendar.component(.year, from: $0) == calendar.component(.year, from: date) && calendar.component(.month, from: $0) == calendar.component(.month, from: date)}) {
             let item = days[section].prepend + calendar.component(.day, from: date) - 1
             indexPath = IndexPath(item: item, section: section)
